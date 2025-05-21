@@ -1,0 +1,30 @@
+services:
+  app:
+    build: .
+    ports:
+      - 8080:8080
+    volumes:
+      - type: bind
+        source: ./code
+        target: /app/code
+      - type: bind
+        source: ./data
+        target: /data
+  ollama:
+    image: ollama/ollama
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [compute]
+    ports:
+      - 11434:11434
+    volumes:
+      - rag-chatbot_ollama:/root/.ollama
+
+
+volumes:
+  rag-chatbot_ollama:
+    external: true
