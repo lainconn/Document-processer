@@ -18,7 +18,7 @@ services:
           devices:
             - driver: nvidia
               count: 1
-              capabilities: [compute]
+              capabilities: [compute, utility]
     ports:
       - 11434:11434
     volumes:
