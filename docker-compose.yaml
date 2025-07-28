@@ -1,11 +1,11 @@
 services:
   app:
-    build: .
+    image: docling-app
     ports:
       - 8080:8080
     volumes:
       - type: bind
-        source: ./code
+        source: ./src
         target: /app/code
       - type: bind
         source: ./data
@@ -22,9 +22,8 @@ services:
     ports:
       - 11434:11434
     volumes:
-      - rag-chatbot_ollama:/root/.ollama
+      - ollama-storage:/root/.ollama
 
 
 volumes:
-  rag-chatbot_ollama:
-    external: true
+  ollama-storage:
