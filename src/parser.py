@@ -160,5 +160,5 @@ def setup_logger() -> "logger":
 if __name__ == "__main__":
 
     logger = setup_logger()
-    reader = Reader(file_path=Path("/data/raw"), verbose=True)
+    reader = Reader(file_path=Path("/data"), verbose=True)
     reader.process()
