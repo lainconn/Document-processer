@@ -10,15 +10,15 @@ services:
       - type: bind
         source: ./data
         target: /data
-  ollama:
+  ollama: # is there a reason to use ollama?
     image: ollama/ollama
-    deploy:
-      resources:
-        reservations:
-          devices:
-            - driver: nvidia
-              count: 1
-              capabilities: [compute, utility]
+    # deploy:
+    #   resources:
+    #     reservations:
+    #       devices:
+    #         - driver: nvidia
+    #           count: 1
+    #           capabilities: [compute, utility]
     ports:
       - 11434:11434
     volumes:
